@@ -60,7 +60,7 @@ const twTypoMargin = {
 };
 
 /**
- * Prose rest for TailwindCSS Typography plugin (version lower than v5).
+ * Prose reset for TailwindCSS Typography plugin (version lower than v5).
  * Version 5 ships with the `:where` selector and does not require this default, if used.
  * Use the proseCleanup instead if your use the modern mode from version 5.
  */
