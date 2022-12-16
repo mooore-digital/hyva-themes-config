@@ -1,6 +1,6 @@
-exports.rootPath = "../../../../../../..";
+const rootPath = "../../../../../../..";
 
-exports.breakpoints = {
+const breakpoints = {
     xs: "420px",
     sm: "640px",
     "sm-max": { max: "639px" },
@@ -37,7 +37,6 @@ const proseCleanup = {
         backgroundColor: "currentColor",
     },
 };
-exports.proseCleanup = proseCleanup;
 
 // Values copied from @tailwindcss/typography/src/styles
 const round = (num) =>
@@ -46,11 +45,6 @@ const round = (num) =>
         .replace(/(\.[0-9]+?)0+$/, "$1")
         .replace(/\.0$/, "");
 const em = (px, base) => `${round(px / base)}em`;
-
-exports.unsetTypoMargin = {
-    marginTop: null,
-    marginBottom: null,
-};
 
 const twTypoMargin = {
     "h1:not([class*=mt-])": { marginTop: "0" },
@@ -64,35 +58,49 @@ const twTypoMargin = {
     "p:not([class*=mt-])": { marginTop: em(20, 16) },
     "p:not([class*=mb-])": { marginBottom: em(20, 16) },
 };
-exports.twTypoMargin = twTypoMargin;
 
-exports.proseDefaults = {
-    ...proseCleanup,
-    color: false,
-    h1: {
-        ...unsetTypoMargin,
-        fontFamily: "var(--family-heading)",
-    },
-    h2: {
-        ...unsetTypoMargin,
-        fontFamily: "var(--family-heading)",
-    },
-    h3: {
-        ...unsetTypoMargin,
-        fontFamily: "var(--family-heading)",
-    },
-    h4: {
-        ...unsetTypoMargin,
-        fontFamily: "var(--family-heading)",
-    },
-    h5: {
-        fontFamily: "var(--family-heading)",
-    },
-    h6: {
-        fontFamily: "var(--family-heading)",
-    },
-    strong: {
-        fontWeight: "bolder",
-    },
-    ...twTypoMargin,
+/**
+ * Prose rest for TailwindCSS Typography plugin (version lower than v5).
+ * Version 5 ships with the `:where` selector and does not require this default, if used.
+ * Use the proseCleanup instead if your use the modern mode from version 5.
+ */
+const proseDefaults = ({ h1, h2, h3, h4, strong, ...props }) => {
+    return {
+        ...proseCleanup,
+        ...twTypoMargin,
+        color: false,
+        h1: {
+            marginTop: null,
+            marginBottom: null,
+            ...h1,
+        },
+        h2: {
+            marginTop: null,
+            marginBottom: null,
+            ...h2,
+        },
+        h3: {
+            marginTop: null,
+            marginBottom: null,
+            ...h3,
+        },
+        h4: {
+            marginTop: null,
+            marginBottom: null,
+            ...h4,
+        },
+        strong: {
+            fontWeight: "bolder",
+            ...strong,
+        },
+        ...props,
+    };
+};
+
+module.exports = {
+    rootPath,
+    breakpoints,
+    proseCleanup,
+    twTypoMargin,
+    proseDefaults,
 };
