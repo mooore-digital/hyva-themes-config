@@ -2,7 +2,7 @@ const {
     flattenObj,
     removeAllExceptValue,
     createObject,
-} = require("./src/objHelper.cjs");
+} = require("./objHelper.cjs");
 
 /**
  * Converts an Object of design tokens to a Tailwind compatible tokens.
