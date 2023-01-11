@@ -4,6 +4,7 @@ const {
     twTypoMargin,
     proseDefaults,
 } = require("./src/typography.cjs");
+const { createTailwindTokens } = require("./src/twTokens.cjs");
 
 module.exports = {
     rootPath,
@@ -11,4 +12,5 @@ module.exports = {
     proseCleanup,
     twTypoMargin,
     proseDefaults,
+    createTailwindTokens,
 };
