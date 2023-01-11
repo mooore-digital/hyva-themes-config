@@ -16,6 +16,6 @@ indent_size = 4
 trim_trailing_whitespace = false
 max_line_length = 80
 
-[*.{css,less,sass,scss,js,ts,mjs}]
+[*.{css,less,sass,scss,js,cjs,mjs,ts}]
 indent_size = 4
 max_line_length = 80
