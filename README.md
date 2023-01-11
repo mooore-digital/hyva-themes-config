@@ -51,4 +51,4 @@ module.exports = hyvaModules.mergeTailwindConfig({
 
 This package offers serval helpers, to make it easier to build your Hyva Tailwind config.
 
-To see what is available see the `index.js`
+To see what is available see the `index.js` and the files in the src folder.
