@@ -11,8 +11,8 @@ module.exports = {
     breakpoints,
     createTailwindTokens,
     cssprops,
+    rootPath,
     proseCleanup,
     proseDefaults,
-    rootPath,
     twTypoMargin,
 };

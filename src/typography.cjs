@@ -6,7 +6,11 @@ const round = (num) =>
         .replace(/\.0$/, "");
 const em = (px, base) => `${round(px / base)}em`;
 
-// Unset's any colors for the default prose
+/**
+ * Sets a better default for your TailwindCSS typography defaults
+ *
+ * @deprecated This only used for TailwindCSS typography 0.4 and lower
+ */
 const proseCleanup = {
     [[
         '[class~="lead"]',
@@ -29,6 +33,11 @@ const proseCleanup = {
     },
 };
 
+/**
+ * Sets an options to override the text spacing with utility classes
+ *
+ * @deprecated This only used for TailwindCSS typography 0.4 and lower
+ */
 const twTypoMargin = {
     "h1:not([class*=mt-])": { marginTop: "0" },
     "h1:not([class*=mb-])": { marginBottom: em(32, 36) },
@@ -46,6 +55,8 @@ const twTypoMargin = {
  * Prose reset for TailwindCSS Typography plugin (version lower than v5).
  * Version 5 ships with the `:where` selector and does not require this default, if used.
  * Use the proseCleanup instead if your use the modern mode from version 5.
+ *
+ * @deprecated This only used for TailwindCSS typography 0.4 and lower
  */
 const proseDefaults = ({ h1, h2, h3, h4, strong, ...props }) => {
     return {

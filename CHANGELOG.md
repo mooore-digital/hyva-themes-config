@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `@fylgja/tailwindcss-plugin-cssprops` as sub package for easier importing,
   also plays really well with our own `createTailwindTokens()` function
 
+### Changed
+- Marked the `proseCleanup` as deprecated, since we are dropping Tailwind v2 support in a later version
+- Marked the `twTypoMargin` as deprecated, since we are dropping Tailwind v2 support in a later version
+- Marked the `proseDefaults()` as deprecated, since we are dropping Tailwind v2 support in a later version
+
 ## [1.1.0] - 2022-01-11
 ### Added
 - `createTailwindTokens()` function, to convert Figma or Sketch design tokens to Tailwind compatible tokens
