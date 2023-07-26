@@ -17,5 +17,8 @@
     "type": "git",
     "url": "https://github.com/mooore-digital/hyva-themes-config.git"
   },
-  "bugs": "https://github.com/mooore-digital/hyva-themes-config/issues"
+  "bugs": "https://github.com/mooore-digital/hyva-themes-config/issues",
+  "dependencies": {
+    "@fylgja/tailwindcss-plugin-cssprops": "^1.0.0"
+  }
 }
