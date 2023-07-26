@@ -1,9 +1,11 @@
 # Mooore - Hyva Themes Config
 
-Hyvä-themes TailwindCSS utility functions
+Introducing Hyvä-Themes TailwindCSS Utility Functions,
+your go-to collection of shared defaults for the Hyvä Tailwind config.
 
-This contains our shared defaults,
-for the Hyva Tailwind config
+Enhance your web development projects with ease using these powerful utility functions.
+
+Discover the simplicity and efficiency of TailwindCSS like never before. Feel free to dive in and explore the possibilities!
 
 ## Installation
 
@@ -11,10 +13,11 @@ for the Hyva Tailwind config
 npm install @mooore/hyva-modules
 ```
 
-Then include the component in to your code via;
+after this include the functions and variables in to your code via;
 
 ```js
-const { rootPath, breakpoints, proseDefaults } = require("@mooore/hyva-modules");
+const { rootPath, breakpoints, createTailwindTokens, cssprops } = require("@mooore/hyva-modules");
+const { colors } = createTailwindTokens(require("./figma.tokens.json"));
 
 module.exports = hyvaModules.mergeTailwindConfig({
     purge: {
@@ -26,29 +29,46 @@ module.exports = hyvaModules.mergeTailwindConfig({
     },
     theme: {
         screens: breakpoints,
-        extend: {
-            typography: {
-                DEFAULT: {
-                    css: proseDefaults({
-                        h1: {
-                            fontWeight: 900,
-                        },
-                        h2: {
-                            fontWeight: 700,
-                        },
-                        h3: {
-                            fontWeight: 500,
-                        },
-                    }),
+        theme: {
+            extend: {
+                color: {
+                    primary: {
+                        DEFAULT: "hsl(var(--color-primary) / <alpha-value>)",
+                    }
+                }
+            }
+        },
+        plugins: [
+            cssprops({
+                tokens: {
+                    color: {
+                        primary: colors.primary,
+                    },
                 },
-            },
-        }
+            }),
+        ],
     }
 });
 ```
 
 ## How to use
 
-This package offers serval helpers, to make it easier to build your Hyva Tailwind config.
+This package offers several helpers to simplify the process of building your Hyvä Tailwind config.
 
-To see what is available see the `index.js` and the files in the src folder.
+To see what is available, refer to the index.js file and explore the contents of the src folder.
+
+These resources will guide you through the functionalities at your disposal,
+making it a breeze to customize your TailwindCSS setup.
+
+Simplify your workflow and take advantage of the convenience brought to you by our utility functions.
+
+Feel free to dive in and explore the possibilities!
+
+### CSSProps Function
+
+The CSSProps function harnesses the capabilities of the [TailwindCSS Plugin Fylgja CSSProps](https://github.com/fylgja/tailwindcss-plugin-cssprops).
+
+For detailed instructions on how to integrate it within your Tailwind config,
+kindly consult the documentation available in the provided link.
+
+This will guide you through the seamless process of leveraging the power of CSSProps to enhance your TailwindCSS experience effectively.
