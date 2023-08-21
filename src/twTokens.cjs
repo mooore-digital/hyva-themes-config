@@ -33,6 +33,11 @@ function createTailwindTokens(tokens) {
         tokens[newKey] = tokens[key];
         delete tokens[key];
 
+        // Check if Reference values are used
+        if (tokens[newKey] && tokens[newKey].startsWith('{')) {
+            console.warn('Reference value found for', newKey, "with value", tokens[newKey]);
+        }
+
         // Revert the action from flattenObj
         let keys = newKey.split("-");
         createObject(keys, tokens[newKey], newTokens);
