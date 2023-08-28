@@ -17,7 +17,7 @@ after this include the functions and variables in to your code via;
 
 ```js
 const { rootPath, breakpoints, createTailwindTokens, cssprops } = require("@mooore/hyva-modules");
-const { colors } = createTailwindTokens(require("./figma.tokens.json"));
+const { colors } = createTailwindTokens(require("./figma-tokens.json"));
 
 module.exports = hyvaModules.mergeTailwindConfig({
     purge: {
